@@ -1,0 +1,41 @@
+{
+	"nodes":[
+		{"type":"group","id":"d69600aebf199404","x":775,"y":566,"width":1155,"height":554,"label":"4. 集群名称识别"},
+		{"type":"group","id":"c6560887a98be227","x":23,"y":-224,"width":716,"height":358,"label":"2. 集群文件生成"},
+		{"type":"group","id":"13fd73320984eb67","x":-1073,"y":-248,"width":708,"height":355,"label":"1. 企业清单生成"},
+		{"type":"group","id":"94d6c1fdf5e7cd7b","x":1127,"y":-261,"width":450,"height":553,"label":"3. 网络布局"},
+		{"type":"group","id":"bf6513b803665c6f","x":1000,"y":2794,"width":822,"height":214,"color":"#ffacac","label":"5. 各类分析场景"},
+		{"type":"text","text":"按区域筛选","id":"8e5391d0f479d063","x":-1053,"y":-228,"width":159,"height":50},
+		{"type":"text","text":"按园区筛选","id":"574d5dab09692c8a","x":-1047,"y":-99,"width":161,"height":50},
+		{"type":"text","text":"按产业链筛选","id":"31a39fe52e553f71","x":-1047,"y":37,"width":180,"height":50},
+		{"type":"text","text":"选定企业范围","id":"e1af0e1feff7de90","x":-568,"y":-120,"width":183,"height":50},
+		{"type":"file","file":"VentureSights/产品介绍/产品培训package/产业集群介绍.md","id":"6514902b2c3f09f7","x":-1155,"y":651,"width":1709,"height":1268},
+		{"type":"text","text":"关注产品，请查看 www.venturesights.cn","id":"d3b01bf6ee56ce97","x":-41,"y":582,"width":599,"height":50,"color":"1"},
+		{"type":"text","text":"通过VentureSights 线上功能识别“集群名称”","id":"7a664a113c2701db","x":783,"y":573,"width":1147,"height":69},
+		{"id":"54ed2c91e1b0d845","type":"file","file":"Pasted image 20240520093834.png","x":2644,"y":866,"width":795,"height":988},
+		{"type":"text","text":"高维度数据，表征企业之间的相似关系","id":"9062f993525881cb","x":1142,"y":-243,"width":404,"height":116},
+		{"type":"file","file":"Art Works/high dimensional data.png","id":"abb7bd19b45011b9","x":1156,"y":-68,"width":400,"height":335},
+		{"type":"file","file":"VentureSights/产品介绍/Image 生成产业集群文件.png","id":"0023d3f71864de2b","x":43,"y":-82,"width":676,"height":196},
+		{"type":"text","text":"VentureSights 线上功能 - 集群文件生成","id":"42c44b8ef780e130","x":48,"y":-204,"width":659,"height":72},
+		{"id":"ec60fb99fba52d08","type":"file","file":"Pasted image 20240520093640.png","x":2240,"y":-291,"width":1199,"height":706},
+		{"type":"file","file":"VentureSights/产品介绍/Image 集群图谱示例-君联资本投资.png","id":"0a4abe60b1804661","x":977,"y":1755,"width":1159,"height":745},
+		{"id":"5ea6cac82abdcd8e","type":"file","file":"Pasted image 20240520093956.png","x":783,"y":651,"width":1147,"height":430},
+		{"type":"text","text":"网络中心性分析","id":"d1cc0f155712791f","x":1020,"y":2814,"width":264,"height":50,"color":"4"},
+		{"type":"text","text":"潜在专精特新预测","id":"24d66ecc4ee1f62d","x":1338,"y":2816,"width":241,"height":50,"color":"4"},
+		{"type":"text","text":"其他分析","id":"4e4d05e970e30e76","x":1338,"y":2889,"width":237,"height":59,"color":"4"},
+		{"type":"text","text":"上下游分析","id":"26eda07f9d1e9f38","x":1026,"y":2890,"width":249,"height":64,"color":"4"}
+	],
+	"edges":[
+		{"id":"3833f8c0e687d039","fromNode":"8e5391d0f479d063","fromSide":"right","toNode":"e1af0e1feff7de90","toSide":"left"},
+		{"id":"26c82e43be20ece1","fromNode":"574d5dab09692c8a","fromSide":"right","toNode":"e1af0e1feff7de90","toSide":"left"},
+		{"id":"8a9061ff87de0143","fromNode":"31a39fe52e553f71","fromSide":"right","toNode":"e1af0e1feff7de90","toSide":"left"},
+		{"id":"fd93754e395e0996","fromNode":"e1af0e1feff7de90","fromSide":"right","toNode":"0023d3f71864de2b","toSide":"left","label":"Input: 企业清单 + 相似度"},
+		{"id":"08a035e550ffaef0","fromNode":"0023d3f71864de2b","fromSide":"right","toNode":"94d6c1fdf5e7cd7b","toSide":"left","label":"Output: 集群文件Gephi"},
+		{"id":"340dfbc541128a32","fromNode":"6514902b2c3f09f7","fromSide":"top","toNode":"0023d3f71864de2b","toSide":"bottom","label":"产业集群理论+量化支撑"},
+		{"id":"2356fbfbf4bb5217","fromNode":"94d6c1fdf5e7cd7b","fromSide":"right","toNode":"ec60fb99fba52d08","toSide":"left","label":"基于网络拓扑结构，划分产业集群"},
+		{"id":"c7cf26504e5268e6","fromNode":"ec60fb99fba52d08","fromSide":"bottom","toNode":"54ed2c91e1b0d845","toSide":"top","label":"下载企业和社区编号的文档"},
+		{"id":"0e3f85e5a50def46","fromNode":"54ed2c91e1b0d845","fromSide":"left","toNode":"5ea6cac82abdcd8e","toSide":"right","label":"利用工具识别每个社区的产业名称"},
+		{"id":"1886e2b8d1a9192c","fromNode":"d69600aebf199404","fromSide":"bottom","toNode":"0a4abe60b1804661","toSide":"top","label":"利用增加了社区（产业集群名称）的企业清单做进一步分析"},
+		{"id":"47242fe05ff3f779","fromNode":"0a4abe60b1804661","fromSide":"bottom","toNode":"bf6513b803665c6f","toSide":"top"}
+	]
+}

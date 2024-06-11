@@ -1,0 +1,25 @@
+{
+	"nodes":[
+		{"type":"group","id":"6334297160275fca","x":-3036,"y":-2731,"width":1908,"height":560,"label":"区域分析"},
+		{"type":"group","id":"6974f961e9bbfedb","x":-3036,"y":-1451,"width":1908,"height":499,"label":"资源匹配分析"},
+		{"type":"group","id":"2f6110d5957bd77d","x":-3036,"y":-2060,"width":1425,"height":489,"label":"评估/预测分析"},
+		{"type":"file","file":"VentureSights/产品介绍/产品培训package/区域产业聚集度分析.md","id":"1c181681402a77a6","x":-2031,"y":-2619,"width":400,"height":400,"color":"5"},
+		{"type":"file","file":"VentureSights/产业分析实例介绍/产业数字化程度量化分析.md","id":"6f848030ed235122","x":-1548,"y":-2619,"width":400,"height":400,"color":"5"},
+		{"type":"file","file":"VentureSights/产业分析实例介绍/区域产业集群分析.md","id":"1d4d314beb0a2495","x":-3016,"y":-2619,"width":400,"height":400,"color":"5"},
+		{"type":"file","file":"VentureSights/产业分析实例介绍/区域核心产业识别.md","id":"f548ff95d2085864","x":-2520,"y":-2619,"width":400,"height":400,"color":"5"},
+		{"type":"file","file":"VentureSights/产品介绍/产品培训package/潜在专精特新企业的预测.md","id":"967a176f517b6393","x":-2031,"y":-2011,"width":400,"height":400,"color":"1"},
+		{"type":"file","file":"VentureSights/产品介绍/产品培训package/上市公司并购，数字化转型转型机会挖掘.md","id":"a03d1e676d7461d5","x":-3016,"y":-1392,"width":400,"height":400,"color":"6"},
+		{"type":"file","file":"VentureSights/产业分析实例介绍/母基金投资画像分析.md","id":"cac96a0c2da20487","x":-2520,"y":-1392,"width":400,"height":400,"color":"6"},
+		{"type":"file","file":"VentureSights/产品介绍/产品培训package/产业之间合作图谱.md","id":"5edb440bbe3f0a77","x":-2031,"y":-1392,"width":400,"height":400,"color":"6"},
+		{"type":"file","file":"VentureSights/产品介绍/产品培训package/招商目标企业和区域产业匹配分析.md","id":"31d902a8579617c1","x":-1548,"y":-1392,"width":400,"height":400,"color":"6"},
+		{"type":"text","text":"![[产业集群分析汇总.canvas|产业集群分析汇总]]","id":"6cab19eaa503477d","x":-4352,"y":-1785,"width":1080,"height":707},
+		{"type":"file","file":"VentureSights/产品介绍/产品培训package/资产配置分析：二级市场.md","id":"6f0c61d17b78b552","x":-3016,"y":-2011,"width":400,"height":400,"color":"1"},
+		{"type":"file","file":"VentureSights/产品介绍/产品培训package/未上市企业估值分析.md","id":"ab176282da3ab500","x":-2520,"y":-2011,"width":400,"height":400,"color":"1"},
+		{"type":"file","file":"VentureSights/产品介绍/产品培训package/产业集群基础理论.md","id":"152045981fb2c6ae","x":-4350,"y":-2747,"width":952,"height":871,"color":"3"}
+	],
+	"edges":[
+		{"id":"78610825c63be9ec","fromNode":"152045981fb2c6ae","fromSide":"right","toNode":"6334297160275fca","toSide":"left","label":"应用"},
+		{"id":"2fd2541c977e05ae","fromNode":"152045981fb2c6ae","fromSide":"right","toNode":"2f6110d5957bd77d","toSide":"left","label":"应用"},
+		{"id":"90d999f507e80c80","fromNode":"152045981fb2c6ae","fromSide":"right","toNode":"6974f961e9bbfedb","toSide":"left","label":"应用"}
+	]
+}
