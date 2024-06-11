@@ -1,4 +1,6 @@
 https://publish.obsidian.md/venturesights-training/VentureSights/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E4%BA%A7%E5%93%81%E5%9F%B9%E8%AE%ADpackage/%E4%BA%A7%E5%93%81%E5%9F%B9%E8%AE%ADstep-by-step%E6%95%99%E7%A8%8B
+
+
 产品培训目标以及效果预期
 目标人群：
 喜欢数据分析，并以数据分析为核心能力和事业路径的人；
