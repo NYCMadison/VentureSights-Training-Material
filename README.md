@@ -1,4 +1,4 @@
-https://publish.obsidian.md/venturesights-training/VentureSights/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E4%BA%A7%E5%93%81%E5%9F%B9%E8%AE%ADpackage/%E4%BA%A7%E5%93%81%E5%9F%B9%E8%AE%ADstep-by-step%E6%95%99%E7%A8%8B
+https://publish.obsidian.md/training/VentureSights/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E4%BA%A7%E5%93%81%E5%9F%B9%E8%AE%ADpackage/%E4%BA%A7%E5%93%81%E5%9F%B9%E8%AE%ADstep-by-step%E6%95%99%E7%A8%8B
 
 
 产品培训目标以及效果预期
