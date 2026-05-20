@@ -1,0 +1,34 @@
+# OS
+.DS_Store
+**/.DS_Store
+
+# Obsidian 本地配置与缓存（按需保留部分可提交）
+.obsidian/
+!.obsidian/community-plugins.json
+!.obsidian/manifest.json
+
+# Agent / IDE 工作区（一般不纳入版本）
+.agent/
+.claude/
+.cursor/
+
+# 内部任务体系梳理（不对外）
+VentureSights介绍资料/任务体系_可对外Agent梳理_科技投行与产业研究_2026-05-20.md
+
+# 环境与密钥
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+.venv/
+*.egg-info/
+*.egg
+
+# 脚本子目录已有 .gitignore 时，此处作仓库级兜底
+# 知识抽取和蒸馏/scripts 内 .env 等见该目录 .gitignore
