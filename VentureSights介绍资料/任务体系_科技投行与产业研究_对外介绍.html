@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VentureSights · 科技投行与产业研究智能体（对外产品介绍）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --bg-card: #141b24;
+      --bg-elevated: #1a2332;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #3d9cf5;
+      --accent-soft: rgba(61, 156, 245, 0.12);
+      --accent-border: rgba(61, 156, 245, 0.35);
+      --success: #3fb950;
+      --warn: #d29922;
+      --border: rgba(255, 255, 255, 0.08);
+      --radius: 12px;
+      --font: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      --nav-h: 56px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 1rem); }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: rgba(11, 15, 20, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 clamp(1rem, 4vw, 2.5rem);
+      gap: 1.5rem;
+      overflow-x: auto;
+    }
+
+    nav .brand {
+      font-weight: 700;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      color: var(--text);
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    .hero {
+      padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 4vw, 2.5rem);
+      max-width: 1100px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    .hero .lead {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 52rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .pipeline {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.75rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .pipeline span {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .pipeline .arrow { color: var(--accent); font-weight: 600; }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 2.5rem) 4rem;
+    }
+
+    section {
+      padding-top: 3rem;
+    }
+
+    section h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: var(--text);
+    }
+
+    section .section-desc {
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 1.75rem 0 0.75rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.15rem 1.25rem;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover { border-color: var(--accent-border); }
+
+    .card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p, .card li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .card ul li {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .stars { color: var(--warn); font-size: 0.8rem; letter-spacing: 1px; }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      margin-right: 0.35rem;
+      margin-top: 0.35rem;
+    }
+
+    .tag.muted {
+      background: rgba(139, 148, 158, 0.15);
+      color: var(--text-muted);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 1rem 0;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    thead { background: var(--bg-elevated); }
+
+    th, td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      font-weight: 600;
+      color: var(--text);
+      font-size: 0.8rem;
+      text-transform: none;
+    }
+
+    td { color: var(--text-muted); }
+
+    tr:last-child td { border-bottom: none; }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .team-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+
+    .team-item .role {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .team-item .alias {
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .team-item p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .skill-group { margin-bottom: 1.5rem; }
+
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .skill-chip {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.6rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-muted);
+      font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    }
+
+    .api-block {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .api-card {
+      background: linear-gradient(145deg, var(--bg-card) 0%, var(--bg-elevated) 100%);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+    }
+
+    .api-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+    .product-hero-card {
+      background: linear-gradient(135deg, rgba(61, 156, 245, 0.08) 0%, var(--bg-card) 50%, var(--bg-elevated) 100%);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-hero-card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+
+    .arch-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 1.25rem 0;
+    }
+
+    .arch-layer {
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+
+    .arch-layer.l1 { background: var(--accent-soft); border-color: var(--accent-border); }
+    .arch-layer.l2 { background: var(--bg-elevated); margin-left: 1rem; }
+    .arch-layer.l3 { background: var(--bg-card); margin-left: 2rem; }
+    .arch-layer.l4 { background: var(--bg-card); margin-left: 3rem; opacity: 0.95; }
+
+    .arch-layer strong { color: var(--text); display: block; margin-bottom: 0.2rem; }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .value-item {
+      padding: 1rem;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .value-item h4 { font-size: 0.95rem; margin-bottom: 0.35rem; }
+    .value-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+    .notice {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius);
+      padding: 1rem 1.15rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin: 1rem 0;
+    }
+
+    .notice strong { color: var(--text); }
+
+    code {
+      font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+      font-size: 0.85em;
+      padding: 0.1em 0.35em;
+      background: var(--bg-elevated);
+      border-radius: 4px;
+      color: var(--accent);
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    footer ul { list-style: none; margin-top: 0.75rem; }
+
+    footer li {
+      margin-bottom: 0.35rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    footer li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    @media print {
+      nav { display: none; }
+      body { background: #fff; color: #111; }
+      .card, table, .team-item { border-color: #ddd; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="brand">VentureSights</span>
+  <a href="#overview">产品定位</a>
+  <a href="#product">一体化架构</a>
+  <a href="#scenarios">覆盖场景</a>
+  <a href="#modules">能力模块</a>
+  <a href="#team">虚拟团队</a>
+  <a href="#skills">技能体系</a>
+  <a href="#knowledge">知识库</a>
+  <a href="#data">本地部署与数据</a>
+  <a href="#compliance">合规边界</a>
+</nav>
+
+<header class="hero" id="overview">
+  <span class="badge">对外产品介绍 · 统一智能体 · v2.1 · 2026-05-20</span>
+  <h1>科技投行与产业研究智能体</h1>
+  <p class="lead">
+    <strong>一个对外智能体、一套本地化安装</strong>：在贵司可控环境内，基于 <strong>Cursor</strong> 与 <strong>Claude Code</strong> 运行，
+    将产业研究、企业分析、VC 尽职调查、交易材料、PE 观察与日更战略面板等能力<strong>打包交付</strong>——<strong>非云端 API 调用、非 Web 控制台</strong>。
+    研究员在 IDE 中用自然语言下达任务，成品落盘为 Markdown / Word 等可编辑底稿；背后由<strong>预装知识库 + 场景编排 + 技能流水线 + 虚拟项目组 + 数据质检门禁</strong>统一支撑。
+  </p>
+  <div class="pill-row">
+    <span class="pill">本地化安装 · Cursor / Claude Code</span>
+    <span class="pill">预装约 4000 篇企业分析报告</span>
+    <span class="pill">20 条产业链分析框架</span>
+    <span class="pill">全国市·区县产业集群数据</span>
+    <span class="pill">领域模型关键词匹配企业</span>
+    <span class="pill">五类场景能力模块</span>
+    <span class="pill">尽调仅 VC 尽职调查</span>
+    <span class="pill">日更仅全产业机会研究链 + V15</span>
+    <span class="pill">质检对外 ≥ L2</span>
+  </div>
+  <div class="pill-row" style="margin-top:0.5rem">
+    <span class="pill">事实与观点分离</span>
+    <span class="pill">干净定稿交付</span>
+  </div>
+  <div class="pipeline">
+    <span>IDE 自然语言任务</span>
+    <span class="arrow">→</span>
+    <span>场景编排 + 技能</span>
+    <span class="arrow">→</span>
+    <span>预装知识库 + 数据</span>
+    <span class="arrow">→</span>
+    <span>虚拟团队并行</span>
+    <span class="arrow">→</span>
+    <span>成稿</span>
+    <span class="arrow">→</span>
+    <span>数据质检门禁</span>
+    <span class="arrow">→</span>
+    <span>客户裁决与签字</span>
+  </div>
+</header>
+
+<main>
+
+  <section id="product">
+    <h2>一体化产品架构</h2>
+    <p class="section-desc">
+      对客户只呈现<strong>一个产品名、一套本地安装包</strong>；产业研究、尽调、日更、区域与交易材料等，均为智能体内的<strong>能力模块</strong>，在 Cursor / Claude Code 中由统一调度层按场景意图（及约定的 <code>task_type</code>）路由，共享预装知识库、质检门禁与虚拟项目组。
+    </p>
+
+    <div class="product-hero-card">
+      <h3>您接入的是什么</h3>
+      <p style="color:var(--text-muted);font-size:0.92rem;margin:0">
+        <strong style="color:var(--text)">科技投行与产业研究智能体</strong> — 在贵司本机或约定隔离环境安装的产业与交易研究执行层。
+        通过 Cursor / Claude Code 对话式下达任务，按场景生成不同研究包；无需为多个独立 Agent 分别采购与集成。
+      </p>
+    </div>
+
+    <h3>四层架构（由外到内）</h3>
+    <div class="arch-stack">
+      <div class="arch-layer l1">
+        <strong>① 本地化工作面</strong>
+        Cursor · Claude Code · 自然语言任务 · 本地落盘成稿（Markdown / Word 等）· 数据不出约定环境（以合同为准）
+      </div>
+      <div class="arch-layer l2">
+        <strong>② 场景能力模块</strong>
+        产业 · 企业 · 日更（机会研究链 + V15）· VC 尽调 · 区域 · 交易材料 · PE 观察
+      </div>
+      <div class="arch-layer l3">
+        <strong>③ 虚拟项目组 + 技能编排</strong>
+        多角色分工 + 可写进 SOW 的技能工序（Skills）
+      </div>
+      <div class="arch-layer l4">
+        <strong>④ 预装领域知识库 + 数据能力</strong>
+        约 4000 篇企业分析报告 · 20 条产业链框架 · 全国市/区县产业集群数据接口 · 私有领域模型关键词（组）企业匹配 · 多领域专业知识库 · 工商/股东/行情 · 合规范围内公开信息获取
+      </div>
+    </div>
+
+    <h3>预装核心资产（知识库 + 数据接口，随安装交付）</h3>
+    <div class="value-grid">
+      <div class="value-item" style="border-color:var(--accent-border)">
+        <h4>企业分析报告库 · 约 4000 篇</h4>
+        <p>覆盖<strong>过去 1 年内有融资事件</strong>的<strong>未上市企业</strong>；支撑标的初筛、可比对标、尽调底稿与企业章节快速起稿。可在本地检索、引用与增量更新（范围以合同为准）。</p>
+      </div>
+      <div class="value-item" style="border-color:var(--accent-border)">
+        <h4>产业分析知识库 · 20 条产业链框架</h4>
+        <p>内置 <strong>20 条产业链分析框架</strong>（含层级结构、节点定义、传导与机会分析口径），支撑产业深度报告、政策影响与技术/商业路径等注册框架分析。</p>
+      </div>
+      <div class="value-item" style="border-color:var(--accent-border)">
+        <h4>产业集群分析数据 · 全国市·区县</h4>
+        <p>预装<strong>覆盖全国城市、区县</strong>的产业集群分析<strong>数据接口</strong>（本地连接器）：集群指标、共现网络、综合评估与企业—集群映射等，支撑区域产业报告、招商研判与园区对标（授权与字段以合同为准）。</p>
+      </div>
+      <div class="value-item" style="border-color:var(--accent-border)">
+        <h4>领域模型关键词（组）· 企业匹配</h4>
+        <p>基于<strong>私有领域模型</strong>维护的产业/技术关键词与关键词组，对接<strong>企业匹配数据接口</strong>：按赛道语义扩展长名单、竞品与相似企业映射，与 4000 篇报告库、产业集群数据交叉引用。</p>
+      </div>
+    </div>
+
+    <h3>为谁打包（典型客户）</h3>
+    <div class="value-grid">
+      <div class="value-item">
+        <h4>咨询 · PE / VC · 战投</h4>
+        <p>赛道扫描、标的初判、VC 尽调底稿、PE 观察清单、日更机会与 V15 战略面板。</p>
+      </div>
+      <div class="value-item">
+        <h4>并购 · 财务顾问 · ECM</h4>
+        <p>行业章与 Teaser/IM 骨架、买方 Q&A、交易结构/税务/技术问题清单（非持牌意见）。</p>
+      </div>
+      <div class="value-item">
+        <h4>券商研究 · 园区招商</h4>
+        <p>区域产业叙事、产业集群图谱与 Excel、政策—产业传导分析框架。</p>
+      </div>
+    </div>
+
+    <div class="notice">
+      <strong>交付形态：</strong>研究向与交易材料向均为<strong>同一智能体内的模块</strong>，以<strong>本地化安装包</strong>一次交付；共享预装知识库、质检门禁与虚拟项目组。不提供对外 SaaS API 或浏览器控制台（特殊集成以合同约定为准）。
+    </div>
+  </section>
+
+  <section id="scenarios">
+    <h2>覆盖场景</h2>
+    <p class="section-desc">
+      下列五类为智能体内置<strong>场景能力模块</strong>（非独立产品）。均含完整交付清单：双路径知识库检索、免责与版权块；含事实主张的分析类产出<strong>交付前必经数据质检</strong>。
+      另提供三类可注册分析框架（任务参数 <code>framework_id</code>，从 20 条产业链框架库选用或扩展）。
+    </p>
+
+    <div class="card-grid">
+      <article class="card">
+        <h4>场景一 · 产业分析</h4>
+        <p class="stars">★★★★★</p>
+        <p>完整产业报告：框架、数据入文、叙事、图表、参考来源与免责。</p>
+        <span class="tag">能力模块 · 产业深度研究</span>
+        <span class="tag muted">task_type: industry_report</span>
+      </article>
+      <article class="card">
+        <h4>场景二 · 企业分析</h4>
+        <p class="stars">★★★★☆</p>
+        <p>企业分析文档：数据与叙事结合、图表节奏、面向专业机构读者。</p>
+        <span class="tag">能力模块 · 企业分析</span>
+        <span class="tag muted">task_type: enterprise_analysis</span>
+      </article>
+      <article class="card">
+        <h4>场景三 · 新闻与总结</h4>
+        <p class="stars">★★★★☆</p>
+        <p>日更情报：<strong>全产业机会研究链</strong>（十赛道机会包 + 合订 + 十五五战略面板 V15）。</p>
+        <span class="tag">能力模块 · 日更机会 + V15</span>
+        <span class="tag muted">task_type: daily_opportunity / v15_panel</span>
+      </article>
+      <article class="card">
+        <h4>场景四 · VC 尽职调查</h4>
+        <p class="stars">★★★★★</p>
+        <p>投资 memo / 尽调摘要：VC 框架维度 + <strong>核心六问</strong> + 数据叙事 + 图表。</p>
+        <span class="tag">能力模块 · VC 尽职调查</span>
+        <span class="tag muted">task_type: vc_due_diligence</span>
+      </article>
+      <article class="card">
+        <h4>场景五 · 区域产业分析</h4>
+        <p class="stars">★★★★☆</p>
+        <p>区域边界清晰、产业结构与政策主轴、数据叙事、图表与免责。</p>
+        <span class="tag">能力模块 · 区域产业</span>
+        <span class="tag muted">task_type: regional_industry</span>
+      </article>
+    </div>
+
+    <h3>注册分析框架（差异化能力）</h3>
+    <table>
+      <thead>
+        <tr><th>框架</th><th>典型触发</th><th>产出特征</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>产业链商业机会分析</strong></td>
+          <td>商业机会、环节爆发顺序、industry chain commercial opportunity…</td>
+          <td>按注册步骤与输出模板成稿，可检验投资命题</td>
+        </tr>
+        <tr>
+          <td><strong>技术路线对比 / 技术路径分析</strong></td>
+          <td>技术路径、路线对比、technology roadmap analysis…</td>
+          <td>多路线对比、成熟度与产业化节奏</td>
+        </tr>
+        <tr>
+          <td><strong>政策影响分析</strong></td>
+          <td>政策对产业/企业影响、policy impact analysis…</td>
+          <td>政策—产业—主体传导与情景</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>科技投行业务链覆盖</h3>
+    <table>
+      <thead>
+        <tr><th>阶段</th><th>典型产出</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>项目获取与筛选</td><td>目标池、赛道扫描、短名单</td></tr>
+        <tr><td>深度尽职调查</td><td>财务 / 技术 / 法律 / 商业 DD 摘要（智能体内置 VC 尽调模块）</td></tr>
+        <tr><td>交易结构设计</td><td>结构选项对比、税务与技术问题清单</td></tr>
+        <tr><td>投资决策支持（IC）</td><td>投资逻辑、风险—收益叙事、机制论证</td></tr>
+        <tr><td>资本市场沟通</td><td>路演故事线、IR Q&A 骨架、交易材料行业章</td></tr>
+        <tr><td>投后管理</td><td>PMF/GTM、增长与复盘结构（按需）</td></tr>
+      </tbody>
+    </table>
+
+    <div class="notice">
+      <strong>对外边界说明：</strong>本智能体对外不包含危机管理场景、基础信息尽职调查独立模块、维辰条式日报 / 播客 / 政务报送等内容运营线。
+      并购控股权等深度 DD 以交易支持技能（结构、税务、技术清单）交付，不替代持牌尽调结论。
+    </div>
+  </section>
+
+  <section id="modules">
+    <h2>能力模块与 task_type</h2>
+    <p class="section-desc">
+      在<strong>同一套本地安装</strong>中，通过场景说明或约定的 <code>task_type</code>（及 <code>framework_id</code>、模板 ID 等）路由至对应能力模块；模块共享预装知识库、数据能力与质检门禁。
+    </p>
+    <table>
+      <thead>
+        <tr><th>能力模块</th><th>task_type（约定）</th><th>典型交付</th><th>主要客群</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>产业深度研究</strong></td>
+          <td><code>industry_report</code></td>
+          <td>完整产业报告、框架成稿、图表与免责</td>
+          <td>咨询、PE/VC、战投</td>
+        </tr>
+        <tr>
+          <td><strong>企业分析</strong></td>
+          <td><code>enterprise_analysis</code></td>
+          <td>企业分析文档、数据叙事、专业机构读者体例</td>
+          <td>咨询、并购、FA</td>
+        </tr>
+        <tr>
+          <td><strong>日更机会 + 战略面板</strong></td>
+          <td><code>daily_opportunity</code> / <code>v15_panel</code></td>
+          <td>全产业机会研究链合订、十五五战略赛道 V15 面板</td>
+          <td>研究部、战投中台</td>
+        </tr>
+        <tr>
+          <td><strong>VC 尽职调查</strong></td>
+          <td><code>vc_due_diligence</code></td>
+          <td>投资 memo / 尽调摘要、核心六问、数据叙事</td>
+          <td>VC、成长型 PE</td>
+        </tr>
+        <tr>
+          <td><strong>区域产业</strong></td>
+          <td><code>regional_industry</code></td>
+          <td>区域边界、产业结构、政策主轴、集群图谱（可选）</td>
+          <td>园区、招商、地方政府智库</td>
+        </tr>
+        <tr>
+          <td><strong>交易材料（研究向子模块）</strong></td>
+          <td><code>fa_materials</code></td>
+          <td>Teaser/IM 行业章、亮点与风险并列、买方 Q&A 骨架</td>
+          <td>FA、ECM、卖方顾问</td>
+        </tr>
+        <tr>
+          <td><strong>PE 二级观察</strong></td>
+          <td><code>pe_secondary_watchlist</code></td>
+          <td>行业 PE 地图、持有期/催化剂/退出窗口、观察清单</td>
+          <td>S 基金、二级 PE、战投</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="notice" style="margin-top:1rem">
+      <strong>使用方式：</strong>在 Cursor / Claude Code 中描述任务或选用场景模板 → 智能体编排执行 → 成品写入约定本地目录。可指定产业/区域/时间窗、<code>framework_id</code>、企业名单、是否拉取线上信息等。具体目录结构与权限以安装手册及合同为准。
+    </div>
+  </section>
+
+  <section id="team">
+    <h2>内置虚拟团队（Subagent）</h2>
+    <p class="section-desc">
+      虚拟角色<strong>不单独售卖</strong>，作为本智能体流水线内的专业分工；对客户表述为「多角色项目组并行 + 统一质检门禁」。
+      等效并行密度可参考 12～20 人跨职能投行项目组（组织类比，非雇佣关系）。
+    </p>
+    <div class="team-grid">
+      <div class="team-item">
+        <div class="role">项目统筹</div>
+        <div class="alias">Coordinator</div>
+        <p>任务拆解、多步编排、结果整合与 skill/MCP 推荐。</p>
+      </div>
+      <div class="team-item">
+        <div class="role">首席问题官 / 机制分析</div>
+        <div class="alias">Aristotle</div>
+        <p>第一性原理拆解、因果与机制模型、关键因素与不确定性清单。</p>
+      </div>
+      <div class="team-item">
+        <div class="role">架构与方案</div>
+        <div class="alias">Architect</div>
+        <p>系统/流程级设计、分层与单一事实来源（产品扩展时）。</p>
+      </div>
+      <div class="team-item">
+        <div class="role">财务 / 估值</div>
+        <div class="alias">Charle</div>
+        <p>报表解读、比率与杜邦、估值与资本预算、市场数据维度。</p>
+      </div>
+      <div class="team-item">
+        <div class="role">技术尽调牵头</div>
+        <div class="alias">Tech-DD-Lead</div>
+        <p>架构、交付、安全、开源与供应链综合视图（不替代渗透/代码审计商）。</p>
+      </div>
+      <div class="team-item">
+        <div class="role">法律合规接口</div>
+        <div class="alias">Legal-Expert</div>
+        <p>交易条款、LDD 维度、数据与 IP 合规边界（不替代律师意见）。</p>
+      </div>
+      <div class="team-item">
+        <div class="role">税务接口</div>
+        <div class="alias">Tax-Advisor</div>
+        <p>跨境/并购税务问题清单与结构接口（不替代税务顾问）。</p>
+      </div>
+      <div class="team-item">
+        <div class="role">VC 标的方法论</div>
+        <div class="alias">Muskr</div>
+        <p>一级市场框架、尽调清单、memo 结构与核心六问维度。</p>
+      </div>
+      <div class="team-item">
+        <div class="role">商业化 / PMF·GTM</div>
+        <div class="alias">Morgan</div>
+        <p>如何赚钱、市场进入、PMF 与 GTM 策略支撑。</p>
+      </div>
+      <div class="team-item">
+        <div class="role">市场营销</div>
+        <div class="alias">Marketing-Expert</div>
+        <p>品牌、获客、渠道与内容（投后增值、叙事交叉章节）。</p>
+      </div>
+      <div class="team-item">
+        <div class="role">投行文笔 / 成稿</div>
+        <div class="alias">Communicator</div>
+        <p>面向目标受众（PE/银行/咨询/VC）的结构、术语与叙事节奏。</p>
+      </div>
+      <div class="team-item">
+        <div class="role">质控（QC）</div>
+        <div class="alias">QA-Controller</div>
+        <p>事实主张核验、逻辑一致性、对外交付至少 L2 深度。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>内置技能体系（Skills）</h2>
+    <p class="section-desc">
+      技能编排内嵌于智能体，是可写进合同与 SOW 的<strong>任务包</strong>（步骤、触发、产出形态）；与领域知识库分工为「知识库定口径，技能定工序」。横切能力（核验、检索、可视化）<strong>不单列对外 SKU</strong>，嵌入各模块交付。
+    </p>
+
+    <div class="skill-group">
+      <h3>一级市场 / 尽调</h3>
+      <div class="skill-chips">
+        <span class="skill-chip">vc-due-diligence-report</span>
+        <span class="skill-chip">commercial-dd-pmf</span>
+        <span class="skill-chip">tech-dd-checklist</span>
+        <span class="skill-chip">memo-financials</span>
+        <span class="skill-chip">coverage-investment-memo</span>
+        <span class="skill-chip">company-business-search</span>
+        <span class="skill-chip">company-shareholder-query</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>并购与资本市场</h3>
+      <div class="skill-chips">
+        <span class="skill-chip">investment-ma-deal-structure</span>
+        <span class="skill-chip">deal-tax-checklist</span>
+        <span class="skill-chip">ecm-roadshow-playbook</span>
+        <span class="skill-chip">venture-daily-multi-horizon-assessment</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>PE 二级观察</h3>
+      <div class="skill-chips">
+        <span class="skill-chip">pe-sector-portfolio-map</span>
+        <span class="skill-chip">pe-fund-holding-tracker</span>
+        <span class="skill-chip">pe-performance-signals</span>
+        <span class="skill-chip">pe-exit-catalyst-watch</span>
+        <span class="skill-chip">pe-exit-window-estimate</span>
+        <span class="skill-chip">pe-secondary-watchlist</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>产业情报与日更（对外主链）</h3>
+      <div class="skill-chips">
+        <span class="skill-chip">daily-news-opportunity-analysis</span>
+        <span class="skill-chip">market-opportunity-analysis（V15）</span>
+        <span class="skill-chip">market-recent-signal</span>
+        <span class="skill-chip">main-industry-driver-analysis</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>产业研究框架与区域数据</h3>
+      <div class="skill-chips">
+        <span class="skill-chip">combine_industry_frameworks</span>
+        <span class="skill-chip">industry-chain-definition</span>
+        <span class="skill-chip">industry-indicator-extraction</span>
+        <span class="skill-chip">regional-cluster-graph</span>
+        <span class="skill-chip">regional-cluster-enterprise-excel</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>横切能力（嵌入各能力模块）</h3>
+      <div class="skill-chips">
+        <span class="skill-chip">data-verification</span>
+        <span class="skill-chip">rag-skill</span>
+        <span class="skill-chip">unified-search</span>
+        <span class="skill-chip">web-fetch</span>
+        <span class="skill-chip">aristotle</span>
+        <span class="skill-chip">story-telling</span>
+        <span class="skill-chip">data-visualization</span>
+        <span class="skill-chip">company-similar-competitors</span>
+        <span class="skill-chip">indus-rec-corp</span>
+        <span class="skill-chip">tushare-finance</span>
+        <span class="skill-chip">quant-analysis</span>
+      </div>
+    </div>
+
+    <h3>典型组合示例</h3>
+    <table>
+      <thead>
+        <tr><th>机构场景</th><th>技能组合</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>VC 新项目初判</td><td>VC 尽调报告 + 商业尽调 + 工商 + 股东 + 数据核验</td></tr>
+        <tr><td>控股权并购</td><td>交易结构 + 税务清单 + 技术尽调 + memo 财务 + 数据核验</td></tr>
+        <tr><td>PE 二级名单</td><td>PE 行业地图 → 持有期/业绩/催化剂/退出窗口 → 观察清单</td></tr>
+        <tr><td>日更产业情报</td><td>全产业机会研究链 + V15 后置 + 关键数字核验</td></tr>
+        <tr><td>再融资路演</td><td>ECM playbook + 多时间尺度产业影响（可选）+ 数据核验</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="knowledge">
+    <h2>领域知识库</h2>
+    <p class="section-desc">
+      随本地化安装预置的<strong>领域知识资产</strong>：约束产出结构、提升专业密度、支撑规模化交付。
+      分析任务默认采用<strong>规则检索 + 语义检索</strong>双路径，在本地加载相关知识条目。
+    </p>
+
+    <div class="product-hero-card" style="margin-bottom:1.25rem">
+      <h3>四大预装底座（规模与口径）</h3>
+      <ul style="margin:0.5rem 0 0 1.1rem;color:var(--text-muted);font-size:0.9rem">
+        <li><strong style="color:var(--text)">企业分析报告库（约 4000 篇）</strong>：覆盖过去 1 年内有融资事件的未上市企业，用于初筛、对标与尽调/企业章起稿。</li>
+        <li><strong style="color:var(--text)">产业分析知识库（20 条产业链分析框架）</strong>：结构化产业链定义、节点与传导口径，支撑产业报告及三类注册框架（商业机会、技术路径、政策影响）。</li>
+        <li><strong style="color:var(--text)">产业集群分析数据（全国市·区县）</strong>：覆盖全国城市、区县的产业集群指标、网络与评估数据接口，支撑区域产业与招商场景。</li>
+        <li><strong style="color:var(--text)">领域模型关键词（组）企业匹配</strong>：基于私有领域模型的关键词/词组，对接企业匹配数据接口，扩展赛道长名单与可比企业池。</li>
+      </ul>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>知识库</th><th>定位</th><th>典型用途</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>产业分析知识库</strong></td>
+          <td>产业分析 · <strong>20 条产业链框架</strong></td>
+          <td>产业链层级与节点、传导网络、政策与信号、区域产业、商业/技术路径注册框架</td>
+        </tr>
+        <tr>
+          <td><strong>企业分析报告库</strong></td>
+          <td>企业主体 · <strong>约 4000 篇</strong></td>
+          <td>近 1 年有融资事件的未上市企业分析底稿；检索、对标、尽调与企业章引用</td>
+        </tr>
+        <tr>
+          <td><strong>产业集群分析数据</strong></td>
+          <td>区域 · <strong>全国市·区县</strong></td>
+          <td>集群指标、共现网络、综合评估指数、企业—集群清单；区域产业与园区招商报告</td>
+        </tr>
+        <tr>
+          <td><strong>领域模型企业匹配</strong></td>
+          <td>私有领域模型 · 关键词（组）</td>
+          <td>按产业/技术语义匹配企业清单；长名单、竞品与相似企业；与报告库、集群数据联动</td>
+        </tr>
+        <tr>
+          <td><strong>about_vc_deal_analysis</strong></td>
+          <td>VC 标的分析</td>
+          <td>尽调清单、memo 结构、估值与条款、核心六问</td>
+        </tr>
+        <tr>
+          <td><strong>about_financials</strong></td>
+          <td>财务与金融指标</td>
+          <td>报表、比率、杜邦、估值、股债商汇数据口径</td>
+        </tr>
+        <tr>
+          <td><strong>about_startup</strong></td>
+          <td>PMF / GTM</td>
+          <td>市场进入、单位经济、渠道与竞争验证</td>
+        </tr>
+        <tr>
+          <td><strong>about_legal_tech_ib</strong></td>
+          <td>科技投行法律</td>
+          <td>交易结构、LDD 维度、披露与合规边界提示</td>
+        </tr>
+        <tr>
+          <td><strong>about_tax_mna</strong></td>
+          <td>并购税务</td>
+          <td>跨境/并购税务问题清单与资料需求</td>
+        </tr>
+        <tr>
+          <td><strong>about_system_engineering</strong></td>
+          <td>系统工程 / 技术尽调</td>
+          <td>架构、交付、安全、开源与供应链清单</td>
+        </tr>
+        <tr>
+          <td><strong>about_quant_analysis</strong></td>
+          <td>量化与统计</td>
+          <td>估计、检验、回归、时间序列术语与边界</td>
+        </tr>
+        <tr>
+          <td><strong>about_hbr</strong></td>
+          <td>商业与管理</td>
+          <td>战略、组织、运营与管理讨论维度</td>
+        </tr>
+        <tr>
+          <td><strong>about_marketing</strong></td>
+          <td>市场营销</td>
+          <td>品牌、获客、渠道、内容与客户洞察</td>
+        </tr>
+        <tr>
+          <td><strong>about_energy_storage</strong></td>
+          <td>储能产业</td>
+          <td>垂直赛道增值：产业链、政策、投资框架</td>
+        </tr>
+        <tr>
+          <td><strong>about_knowledge_logic</strong></td>
+          <td>知识论与逻辑</td>
+          <td>论证规范、证据链与常见谬误提示</td>
+        </tr>
+        <tr>
+          <td><strong>about_product_development</strong></td>
+          <td>分析型产品</td>
+          <td>智能体构建、任务拆解、人机协作（对内/共建）</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="section-desc" style="margin-top:0.75rem">
+      客户可在合同约定范围内接入<strong>专有知识或模板</strong>，使输出与机构方法论对齐。
+    </p>
+  </section>
+
+  <section id="data">
+    <h2>本地部署与数据能力</h2>
+    <p class="section-desc">
+      <strong>交付与使用均在本地完成</strong>：安装包内含智能体编排、预装知识库与可选数据连接器；分析任务与配置绑定，可走可重复流水线，减少口径漂移。
+    </p>
+
+    <div class="card-grid">
+      <article class="card">
+        <h4>本地化安装（唯一对外交付形态）</h4>
+        <ul>
+          <li>基于 <strong>Cursor</strong>、<strong>Claude Code</strong>（及约定 IDE 插件/规则包）安装与启用</li>
+          <li>研究员以自然语言或场景模板下达任务，成品落盘至约定目录（Markdown / Word / HTML 等）</li>
+          <li>按场景或 <code>task_type</code> 路由能力模块：产业/企业/区域、VC 尽调、PE 观察、日更+V15、交易材料等</li>
+          <li>环境隔离、目录权限与升级策略以<strong>安装手册及合同</strong>为准（非对外 SaaS API）</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h4>结构化数据输入</h4>
+        <ul>
+          <li>企业名单、统一社会信用代码、关注指标序列</li>
+          <li>标签与元数据、客户内部主数据 ID</li>
+          <li>可比公司列表、筛选条件与对比维度</li>
+          <li>与贵司数据平台、投研系统或 CRM <strong>直连</strong>（数据进、报告出）</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h4>公开信息获取</h4>
+        <ul>
+          <li>新闻、政策文件、监管与披露网页（合规与站点政策范围内）</li>
+          <li>与知识库条目、框架字段映射，标注时效</li>
+          <li>补足「最新发生了什么」，可回答来源与时点追问</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h4>企业主体事实</h4>
+        <ul>
+          <li>工商登记基础字段（名称、信用代码、法人、注册资本等）</li>
+          <li>股东、出资与控制关系线索（以授权数据源为准）</li>
+          <li>相似企业与竞品推荐（产业关键词 + 双路合并）</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h4>产业集群分析数据（预装 · 全国市·区县）</h4>
+        <ul>
+          <li><strong>覆盖全国城市、区县</strong>的产业集群分析数据接口（本地连接器，非对外 SaaS）</li>
+          <li>集群指标、共现网络、综合评估指数、企业—集群映射与 Excel 导出</li>
+          <li>用于区域产业能力模块、招商/园区对标与宏观—中观—微观区域叙事</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h4>领域模型关键词（组）· 企业匹配</h4>
+        <ul>
+          <li>基于<strong>私有领域模型</strong>维护的产业/技术关键词与关键词组</li>
+          <li>对接企业匹配数据接口：赛道长名单、相似企业与竞品映射（双路合并）</li>
+          <li>与 4000 篇企业报告库、产业集群数据、产业链框架字段对齐引用</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h4>公开市场数据（可选）</h4>
+        <ul>
+          <li>A 股行情、财务与宏观指标等（如 Tushare 等接口，以授权为准）</li>
+          <li>用于可复核的数据附录与趋势描述</li>
+          <li>缺数据处显式标注，不臆造</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="notice">
+      <strong>四层能力支柱（对客户价值）：</strong>
+      ① 预装知识库（4000 篇企业报告 + 20 条产业链框架）· ② 全国市/区县产业集群数据 · ③ 领域模型关键词企业匹配 · ④ 有纪律的线上信息与工商/行情等连接器
+      → 交付<strong>结构稳定、口径可控的分析背景资料</strong>，供贵司二次加工与合规审定。
+    </div>
+  </section>
+
+  <section id="compliance">
+    <h2>合规边界</h2>
+    <footer>
+      <ul>
+        <li>交付物定位为<strong>研究底稿与背景附件</strong>，不构成法律、税务、审计意见或投资建议。</li>
+        <li>投资决策、对外披露、签字责任由客户与持牌机构承担。</li>
+        <li>含事实主张的材料交付前经数据质检；对外验证深度至少 <strong>L2</strong>（来源追溯、交叉验证、时间戳）。</li>
+        <li>对外正文不暴露内部核验过程、调试信息或知识库路径；仅呈现干净定稿与必要来源说明。</li>
+        <li>无法核实的数据与事件在正文中<strong>显式标注局限</strong>。</li>
+      </ul>
+      <p style="margin-top:1.5rem">
+        VentureSights · 科技投行与产业研究智能体 · 对外产品介绍 v2.1（本地化安装版）<br>
+        具体能力范围、预装知识库规模、验收标准与部署边界以安装手册及双方合同为准。
+      </p>
+    </footer>
+  </section>
+
+</main>
+
+</body>
+</html>
